@@ -1,5 +1,6 @@
 package com.parkit.parkingsystem.dao;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.parkit.parkingsystem.config.DataBaseConfig;
 import com.parkit.parkingsystem.constants.DBConstants;
 import com.parkit.parkingsystem.constants.ParkingType;
@@ -55,5 +56,53 @@ public class ParkingSpotDAO {
             dataBaseConfig.closeConnection(con);
         }
     }
-
+    
+    public boolean isReccurent(String regVehicleNumber){
+        Connection con = null;
+        try {
+        	int result = 0;
+            con = dataBaseConfig.getConnection();
+            
+            PreparedStatement ps = con.prepareStatement(DBConstants.COUNT_RECURENT);
+            ps.setString(1, regVehicleNumber);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                result = rs.getInt(1);
+            }
+            
+            dataBaseConfig.closePreparedStatement(ps);
+            System.out.print(" Nombre de doublon : ");
+            System.out.println(result >= 1);
+            return (result >= 1);
+            
+        }catch (Exception ex){
+            logger.error("",ex);
+            return false;
+        }finally {
+            dataBaseConfig.closeConnection(con);
+        }
+    }   
+    
+    public void duplicate(){
+        Connection con = null;
+        try {
+        	String result;
+            con = dataBaseConfig.getConnection();
+            
+            PreparedStatement ps = con.prepareStatement(DBConstants.DUPLICATE);
+            ResultSet rs = ps.executeQuery();
+            java.sql.ResultSetMetaData infoRs = rs.getMetaData();
+            if(((ResultSet) infoRs).next()){
+                result = ((ResultSet) infoRs).getString(1);
+                System.out.print(" Vehicule deja venu : " + result);
+            }  
+            
+            dataBaseConfig.closePreparedStatement(ps);   
+            
+        }catch (Exception ex){
+            logger.error("",ex);
+        }finally {
+            dataBaseConfig.closeConnection(con);
+        }
+    }  
 }
