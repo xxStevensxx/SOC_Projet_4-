@@ -1,6 +1,6 @@
 package com.parkit.parkingsystem.dao;
 
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
+//import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.parkit.parkingsystem.config.DataBaseConfig;
 import com.parkit.parkingsystem.constants.DBConstants;
 import com.parkit.parkingsystem.constants.ParkingType;
@@ -71,8 +71,6 @@ public class ParkingSpotDAO {
             }
             
             dataBaseConfig.closePreparedStatement(ps);
-            System.out.print(" Nombre de doublon : ");
-            System.out.println(result >= 1);
             return (result >= 1);
             
         }catch (Exception ex){
