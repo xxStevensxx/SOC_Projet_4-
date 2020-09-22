@@ -3,6 +3,7 @@ package com.parkit.parkingsystem.util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 public class InputReaderUtil {
@@ -34,6 +35,14 @@ public class InputReaderUtil {
             throw e;
         }
     }
+
+    public Scanner getScan() {
+		return scan;
+	}
+
+	public void setScan(Scanner scan) {
+		InputReaderUtil.scan = scan;
+	}
 
 
 }
