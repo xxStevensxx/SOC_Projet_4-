@@ -39,6 +39,7 @@ public class ParkingService {
                 parkingSpotDAO.updateParking(parkingSpot);//allot this parking space and mark it's availability as false
 
                 Date inTime = new Date();
+//                System.out.println("My time : " + inTime);
                 Ticket ticket = new Ticket();
                 //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
                 //ticket.setId(ticketID);
@@ -110,6 +111,7 @@ public class ParkingService {
             if(ticketDAO.updateTicket(ticket)) {
                 ParkingSpot parkingSpot = ticket.getParkingSpot();
                 parkingSpot.setAvailable(true);
+//                System.out.println("Verification coverage!!!");
                 parkingSpotDAO.updateParking(parkingSpot);
                 //Appel de la method de formatage sur le resultat afin d'avoir 2 nb apres la virgule.
                 System.out.println("Please pay the parking fare: " + decimalFormat.format(ticket.getPrice()) + " $ ");

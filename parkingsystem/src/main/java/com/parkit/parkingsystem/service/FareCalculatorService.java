@@ -25,9 +25,6 @@ public class FareCalculatorService {
            difference = 0;
        }
        
-       if(isRecurent == true){
-    	   System.out.print(" MY BEAUTY CAR ");
-       }
        
         switch (ticket.getParkingSpot().getParkingType()){
             case CAR: {
