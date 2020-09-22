@@ -31,23 +31,22 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class InteractiveShellIT {
 	
 
-//   private static ParkingService parkingService;
-
+	public static ParkingService parkingService;
+	
 	@Mock
 	private static InputReaderUtil inputReaderUtil;
     @Mock
     private static TicketDAO ticketDAO;
     @Mock
     private static ParkingSpotDAO parkingSpotDAO;
-    @Mock
-    private static ParkingService parkingService;
+
 
 	
-	
+	@Disabled
 	@BeforeEach
 	public void setUpInputAppInterface() throws Exception {
 		when(inputReaderUtil.readSelection()).thenReturn(1);
-
+		when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("MX-5");
 	}
 	
 	@Disabled
@@ -63,7 +62,7 @@ public class InteractiveShellIT {
 //		InteractiveShell.loadInterface();
 //		    InteractiveShell.loadInterface();
 		 
-		    verify(interactiveShell, times(1));
+//		Mockito.verify(interactiveShell, Mockito.times(1))parkingService.processIncomingVehicle(Mockito.anyString());
 //			InteractiveShell.loadInterface();
 		//Assert
 //        verify(parkingService.processIncomingVehicle(), Mockito.times(1));
