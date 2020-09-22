@@ -12,4 +12,6 @@ public class DBConstants {
 	//
     public static final String COUNT_RECURENT = "select count(*) from ticket where vehicle_reg_number=?";
     public static final String DUPLICATE = "select VEHICLE_REG_NUMBER from TICKET";
+
 }
+
