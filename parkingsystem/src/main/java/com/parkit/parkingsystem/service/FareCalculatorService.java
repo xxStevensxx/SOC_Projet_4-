@@ -6,7 +6,6 @@ import com.parkit.parkingsystem.util.InputReaderUtil;
 
 public class FareCalculatorService {
 	
-	public  InputReaderUtil inputReaderUtil = new InputReaderUtil();
 
     public void calculateFare(Ticket ticket, boolean isRecurent){
         if( (ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime())) ){
@@ -28,6 +27,7 @@ public class FareCalculatorService {
        
         switch (ticket.getParkingSpot().getParkingType()){
             case CAR: {
+        
             	//Ajout d'une condtions ternaire afin d'ajouter 5% de reduction au utilisateur regulier.
                 ticket.setPrice((isRecurent == false) ? difference * Fare.CAR_RATE_PER_HOUR : difference * Fare.CAR_RATE_PER_HOUR * 0.95);
                 break;

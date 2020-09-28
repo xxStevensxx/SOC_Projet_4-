@@ -4,12 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import com.parkit.parkingsystem.util.InputReaderUtil;
 
@@ -42,9 +41,15 @@ public class InputReaderTest {
 	@Test
 	public void readSelectionChoiceKO() {
 		//GIVEN
-		ByteArrayInputStream input = new ByteArrayInputStream("badValue\n".getBytes(Charset.forName("UTF-8")));
-		Scanner sc = new Scanner(input);
-		inputReaderUtil.setScan(sc);
+		try {
+			ByteArrayInputStream input = new ByteArrayInputStream("badValue\n".getBytes(Charset.forName("UTF-8")));
+			Scanner sc = new Scanner(input);
+			inputReaderUtil.setScan(sc);
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+		}
+	
 		
 		//WHEN
 //		le 1 correspond au retour de la methode ByteArrayInputStream si  String return-1 sinon 1
@@ -81,7 +86,7 @@ public class InputReaderTest {
 		
 		//WHEN
 //		le 1 correspond au retour de la methode ByteArrayInputStream si  String return-1 sinon 1
-		int result = -1;
+//		int result = -1;
 		
 		//THEN
 		assertThrows(IllegalArgumentException.class , () -> inputReaderUtil.readVehicleRegistrationNumber(),"Invalid input provided");
