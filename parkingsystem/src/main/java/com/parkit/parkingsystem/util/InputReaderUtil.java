@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class InputReaderUtil {
 
-    private static Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     private static final Logger logger = LogManager.getLogger("InputReaderUtil");
 
     public int readSelection() {
@@ -41,7 +41,7 @@ public class InputReaderUtil {
 	}
 
 	public void setScan(Scanner scan) {
-		InputReaderUtil.scan = scan;
+		this.scan = scan;
 	}
 
 
