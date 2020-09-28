@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Scanner;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +26,7 @@ public class InputReaderTest {
 	@Test
 	public void readSelectionChoiceOK() {
 		//GIVEN
-		ByteArrayInputStream input = new ByteArrayInputStream("1\n".getBytes());
+		ByteArrayInputStream input = new ByteArrayInputStream("1\n".getBytes(Charset.forName("UTF-8")));
 		Scanner sc = new Scanner(input);
 		inputReaderUtil.setScan(sc);
 		
@@ -41,7 +42,7 @@ public class InputReaderTest {
 	@Test
 	public void readSelectionChoiceKO() {
 		//GIVEN
-		ByteArrayInputStream input = new ByteArrayInputStream("badValue\n".getBytes());
+		ByteArrayInputStream input = new ByteArrayInputStream("badValue\n".getBytes(Charset.forName("UTF-8")));
 		Scanner sc = new Scanner(input);
 		inputReaderUtil.setScan(sc);
 		
@@ -58,7 +59,7 @@ public class InputReaderTest {
 	@Test
 	public void readSelectionVehiculeREGTestOK() throws Exception {
 		//GIVEN
-		ByteArrayInputStream input = new ByteArrayInputStream("RX-7\n".getBytes());
+		ByteArrayInputStream input = new ByteArrayInputStream("RX-7\n".getBytes(Charset.forName("UTF-8")));
 		Scanner sc = new Scanner(input);
 		inputReaderUtil.setScan(sc);
 		
@@ -74,7 +75,7 @@ public class InputReaderTest {
 	@Test
 	public void readSelectionVehiculeREGTestKO() throws Exception {
 		//GIVEN
-		ByteArrayInputStream input = new ByteArrayInputStream("\n".getBytes());
+		ByteArrayInputStream input = new ByteArrayInputStream("\n".getBytes(Charset.forName("UTF-8")));
 		Scanner sc = new Scanner(input);
 		inputReaderUtil.setScan(sc);
 		
