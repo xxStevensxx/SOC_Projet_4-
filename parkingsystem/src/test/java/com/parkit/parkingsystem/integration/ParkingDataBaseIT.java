@@ -56,7 +56,7 @@ public class ParkingDataBaseIT {
 //        dataBasePrepareService.clearDataBaseEntries();
     }
 
-    
+
     @Test
     public void testParkingACar() throws Exception{
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
@@ -71,6 +71,7 @@ public class ParkingDataBaseIT {
        assertEquals(vehicle, ticketDAO.getTicket(vehicle).getVehicleRegNumber());
        assertEquals(ticketDAO.getTicket(vehicle).getParkingSpot().isAvailable(),false);
     }
+    
 
     @Test
     public void testParkingLotExit() throws Exception{
