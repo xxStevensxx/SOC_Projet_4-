@@ -20,7 +20,6 @@ public class ParkingService {
     private static final Logger logger = LogManager.getLogger("ParkingService");
     //Instanciation de la methode de formatage decimalFormat
     private static DecimalFormat decimalFormat = new DecimalFormat("#.##");
-    private final StuffCast stuffCast = new StuffCast();
 
     private static FareCalculatorService fareCalculatorService = new FareCalculatorService();
 
@@ -52,7 +51,7 @@ public class ParkingService {
                 ticket.setPrice(0);
                 ticket.setInTime(inTime);
                 //check out Time for resolve bug on findbugs
-                ticket.setOutTime(stuffCast.getDateCast());
+                ticket.setOutTime(StuffCast.getDateCast());
                 ticketDAO.saveTicket(ticket);
                 System.out.println("Generated Ticket and saved in DB");
                 System.out.println("Please park your vehicle in spot number: " + parkingSpot.getId());

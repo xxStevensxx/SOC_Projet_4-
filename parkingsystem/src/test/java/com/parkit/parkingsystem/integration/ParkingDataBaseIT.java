@@ -1,5 +1,6 @@
 package com.parkit.parkingsystem.integration;
 
+import com.parkit.parkingsystem.cast.StuffCast;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.integration.config.DataBaseTestConfig;
@@ -100,7 +101,7 @@ public class ParkingDataBaseIT {
         //ASSERT
         assertEquals(0.0, ticketDAO.getTicket(vehicle).getPrice());
         //On verifie que la date de sortie du vehicule n'est pas NULL
-        assertNotNull(ticketDAO.getTicket(vehicle).getOutTime());
+        assertNotEquals(ticketDAO.getTicket(vehicle).getOutTime(), StuffCast.getDateCast());
     }
 
 }
