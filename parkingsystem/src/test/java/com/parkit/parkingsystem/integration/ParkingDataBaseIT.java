@@ -101,7 +101,7 @@ public class ParkingDataBaseIT {
         //ASSERT
         assertEquals(0.0, ticketDAO.getTicket(vehicle).getPrice());
         //On verifie que la date de sortie du vehicule n'est pas NULL
-        assertNotEquals(ticketDAO.getTicket(vehicle).getOutTime(), StuffCast.getDateCast());
+        assertNotEquals(ticketDAO.getTicket(vehicle).getOutTime(), StuffCast.getDateCast()); 
     }
 
 }
