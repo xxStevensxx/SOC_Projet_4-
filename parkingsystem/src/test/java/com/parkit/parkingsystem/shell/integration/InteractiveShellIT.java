@@ -49,24 +49,24 @@ public class InteractiveShellIT {
 		when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("MX-5");
 	}
 	
-	@Disabled
-	@Test
-	public void loadInterfaceTestIT(){
-//		ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-		
-		InteractiveShell interactiveShell = mock(InteractiveShell.class);
-		
-		InteractiveShell.loadInterface();
-		
-//		 doAnswer().when(interactiveShell);
+//	@Disabled
+//	@Test
+//	public void loadInterfaceTestIT(){
+////		ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+//		
+//		InteractiveShell interactiveShell = mock(InteractiveShell.class);
+//		
 //		InteractiveShell.loadInterface();
-//		    InteractiveShell.loadInterface();
-		 
-//		Mockito.verify(interactiveShell, Mockito.times(1))parkingService.processIncomingVehicle(Mockito.anyString());
-//			InteractiveShell.loadInterface();
-		//Assert
-//        verify(parkingService.processIncomingVehicle(), Mockito.times(1));
-//        Mockito.verify(parkingService.processIncomingVehicle(), Mockito.never()).parkingService.processIncomingVehicle(Mockito.anyString());
-        
-	}
+//		
+////		 doAnswer().when(interactiveShell);
+////		InteractiveShell.loadInterface();
+////		    InteractiveShell.loadInterface();
+//		 
+////		Mockito.verify(interactiveShell, Mockito.times(1))parkingService.processIncomingVehicle(Mockito.anyString());
+////			InteractiveShell.loadInterface();
+//		//Assert
+////        verify(parkingService.processIncomingVehicle(), Mockito.times(1));
+////        Mockito.verify(parkingService.processIncomingVehicle(), Mockito.never()).parkingService.processIncomingVehicle(Mockito.anyString());
+//        
+//	}
 }
